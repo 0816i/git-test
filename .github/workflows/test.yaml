@@ -3,12 +3,12 @@ name: Block Non-Semantic-Release Commits
 on:
   pull_request:
     branches:
-      - stage
+      - main
 
 jobs:
   check-commit-author:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'main'
+    if: github.head_ref == 'refs/heads/stage'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
