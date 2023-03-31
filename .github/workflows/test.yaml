@@ -3,8 +3,6 @@ name: Block Non-Semantic-Release Commits
 on:
   pull_request:
     branches:
-      - stage
-    base:
       - main
   push:
     branches:
