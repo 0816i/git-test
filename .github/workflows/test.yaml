@@ -8,7 +8,7 @@ on:
 jobs:
   check-commit-author:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'refs/heads/stage'
+    if: github.head_ref == 'stage'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
