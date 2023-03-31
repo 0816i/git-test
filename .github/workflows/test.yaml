@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    base:
+      - staged
 
 jobs:
   check-commit-author:
