@@ -3,9 +3,9 @@ name: Block Non-Semantic-Release Commits
 on:
   pull_request:
     branches:
-      - main
+      - stage
     base:
-      - staged
+      - main
 
 jobs:
   check-commit-author:
