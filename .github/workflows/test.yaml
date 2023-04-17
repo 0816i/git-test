@@ -7,16 +7,4 @@ on:
 
 jobs:
   check-commit-author:
-    runs-on: ubuntu-latest
-    if: github.head_ref == 'stage'
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Check Commit Author
-        run: |
-          LAST_COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
-          if [[ "$LAST_COMMIT_AUTHOR" != "test" ]]; then
-            echo "Error: The last commit was made by $LAST_COMMIT_AUTHOR, which is not allowed. Please use the semantic-release-bot to make releases."
-            exit 1
-          fi
+    uses: 0816i/git-test/test.yaml@master
