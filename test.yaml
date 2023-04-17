@@ -1,12 +1,7 @@
 name: Block Non-Semantic-Release Commits
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_call:
 
 jobs:
   check-commit-author:
