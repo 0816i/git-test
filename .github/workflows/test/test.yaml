@@ -1,0 +1,19 @@
+name: Block Non-Semantic-Release Commits
+
+on:
+  workflow_call:
+
+jobs:
+  check-commit-author:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Check Commit Author
+        run: |
+          LAST_COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
+          if [[ "$LAST_COMMIT_AUTHOR" != "semantic-release-bot" ]]; then
+            echo "Error: The last commit was made by $LAST_COMMIT_AUTHOR, which is not allowed. Please use the semantic-release-bot to make releases."
+            exit 1
+          fi
