@@ -7,4 +7,4 @@ on:
 
 jobs:
   check-commit-author:
-    uses: 0816i/git-test/test.yaml@master
+    uses: 0816i/git-test/.github/workflows/test/test.yaml@master
