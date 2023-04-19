@@ -4,18 +4,21 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
 
 jobs:
   check-commit-author:
+    if: ${{ (github.event_name == 'pull_request') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Check Commit Author
+        env:
+          TEST1: ${{github.ref}}
+          TEST2: ${{github.head_ref}}
+          TEST3: ${{github.ref_name}}
+
         run: |
           LAST_COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
           if [[ "$LAST_COMMIT_AUTHOR" != "semantic-release-bot" ]]; then
