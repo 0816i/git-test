@@ -15,7 +15,10 @@ jobs:
 
       - name: Check Commit Author
         env:
-          TEST: ${{github.ref_name}}
+          TEST1: ${{github.ref}}
+          TEST2: ${{github.head_ref}}
+          TEST3: ${{github.ref_name}}
+
         run: |
           LAST_COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
           if [[ "$LAST_COMMIT_AUTHOR" != "semantic-release-bot" ]]; then
